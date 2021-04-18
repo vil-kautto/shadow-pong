@@ -3,21 +3,21 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
 
-    public Rigidbody2D body;
-    public float moveSpeed = 50f;
-    Vector2 movement;
+    public Rigidbody2D ball;
+    public float moveSpeed = 5f;
+    Vector3 lastVelocity;
 
     // Start is called before the first frame update
     void Start()
     {
-        movement.x = 1;
+        ball.AddForce(new Vector2(moveSpeed, 1));
         Debug.Log("Ball movement script loaded");
     }
 
     // Update is called once per frame
     void Update()
     {
-        body.AddForce(movement * moveSpeed * Time.deltaTime, 0);
+        lastVelocity = ball.velocity;
     }
 
     void fixedUpdateUpdate()
@@ -28,17 +28,26 @@ public class BallMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collidedObject)
     {
         Debug.Log("Collision happened with" + collidedObject.collider.tag);
-        if (collidedObject.collider.tag == "Wall")
+
+        /* if (collidedObject.gameObject.CompareTag("Wall"))
         {
             movement.y = movement.y * -1;
         }
-        else if (collidedObject.collider.tag == "Player")
+        if (collidedObject.gameObject.CompareTag("Player"))
         {
+            movement.y = movement.y * -1;
             movement.x = movement.x * -1;
         }
-        else if (collidedObject.collider.tag == "Finish")
+        */
+        if (!collidedObject.gameObject.CompareTag("finish"))
         {
-
+            Debug.Log("The ball hit the " + collidedObject.collider.tag);
+            var speed = lastVelocity.magnitude;
+            var direction = Vector3.Reflect(lastVelocity.normalized, collidedObject.contacts[0].normal);
+            ball.velocity = direction * Mathf.Max(speed, 0f);
+        }
+        else if (collidedObject.gameObject.CompareTag("finish"))
+        {
             Debug.Log("The ball hit the " + collidedObject.collider.tag);
         }
     }

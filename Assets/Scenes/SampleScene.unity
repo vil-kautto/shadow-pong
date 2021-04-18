@@ -208,8 +208,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &96981634
-BoxCollider2D:
+--- !u!60 &96981634
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -231,9 +231,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5023806, y: 0.3614762}
+      - {x: -0.479012, y: -0.3900872}
+      - {x: 0.4204719, y: -0.49801177}
+      - {x: 0.5820931, y: -0.0034512277}
+      - {x: 0.43139267, y: 0.50196016}
 --- !u!114 &96981635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,8 +723,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &1752044487
-BoxCollider2D:
+--- !u!60 &1752044487
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -742,9 +746,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.37350827, y: 0.49743405}
+      - {x: -0.5618875, y: -0.0013961121}
+      - {x: -0.37632522, y: -0.4972635}
+      - {x: 0.48850703, y: -0.40207452}
+      - {x: 0.48091936, y: 0.36115384}
 --- !u!50 &1752044488
 Rigidbody2D:
   serializedVersion: 4
@@ -757,7 +765,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -867,8 +875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8361dcebd625143bcc41fb83d51c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 1881369784}
-  moveSpeed: 1
+  ball: {fileID: 1881369784}
+  moveSpeed: 200
 --- !u!58 &1881369787
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -884,7 +892,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!1001 &819525454240195421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -894,7 +902,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8850378497592798804, guid: 4853978bda9f3ca49aead23d9e1eac0a, type: 3}
       propertyPath: m_Mass
-      value: 0.0001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8850378497592798804, guid: 4853978bda9f3ca49aead23d9e1eac0a, type: 3}
       propertyPath: m_BodyType
