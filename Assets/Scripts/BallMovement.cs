@@ -21,10 +21,7 @@ public class BallMovement : MonoBehaviour
         Debug.Log("Ball movement script loaded");
         BallReset();
     }
-
-
-    public TextMeshProUGUI playerScoreText;
-    public TextMeshProUGUI opponentScoreText;
+    
     public TextMeshProUGUI TimerText;
     private int playerScore = 0;
     private int opponentScore = 0;
@@ -34,9 +31,7 @@ public class BallMovement : MonoBehaviour
      */
     void Update()
     {
-        lastVelocity = ball.velocity;
-        playerScoreText.text = $"{playerScore}";
-        opponentScoreText.text = $"{opponentScore}";
+        lastVelocity = ball.velocity;  
     }
 
     public int resetDelay;
@@ -87,16 +82,14 @@ public class BallMovement : MonoBehaviour
             {
                 opponentScore++;
                 Debug.Log("Opponent's score: " + opponentScore.ToString());
-                //FindObjectOfType<GameController>().EndRound();
+                FindObjectOfType<GameController>().EndRound( "opponent", opponentScore);
 
                 BallReset();
             }
             if (collidedObject.gameObject.name == "OpponentWall")
             {
                 playerScore++;
-                Debug.Log("Player's score: " + playerScore.ToString());
-                //FindObjectOfType<GameController>().EndRound();
-                
+                FindObjectOfType<GameController>().EndRound("player", playerScore);
                 BallReset();
             }
         }
