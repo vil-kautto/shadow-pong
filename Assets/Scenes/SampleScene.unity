@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 96981636}
-  moveSpeed: 5
+  moveSpeed: 4
 --- !u!50 &96981636
 Rigidbody2D:
   serializedVersion: 4
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1752044488}
-  moveSpeed: 5
+  moveSpeed: 4
 --- !u!212 &1752044490
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1410,8 +1410,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 1881369784}
   moveSpeed: 300
-  TimerText: {fileID: 959805613}
   resetDelay: 3
+  TimerText: {fileID: 959805613}
 --- !u!58 &1881369787
 CircleCollider2D:
   m_ObjectHideFlags: 0

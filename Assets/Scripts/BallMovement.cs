@@ -93,9 +93,10 @@ public class BallMovement : MonoBehaviour
     {
         // Calculating the direction after a collision happens with the ball
         Debug.Log("Collision happened with" + collidedObject.collider.tag);
-        var speed = lastVelocity.magnitude;
+        var speed = lastVelocity.magnitude * (float)1.01;
         var direction = Vector3.Reflect(lastVelocity.normalized, collidedObject.contacts[0].normal);
         ball.velocity = direction * Mathf.Max(speed, 0f);
+        Debug.Log(ball.velocity);
         // Upon hitting a goal, end the round and start a new one
         if (collidedObject.gameObject.CompareTag("Score"))
         {

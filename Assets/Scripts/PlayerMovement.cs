@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public Rigidbody2D body;
-    public float moveSpeed = 5f;
+    public float moveSpeed;
     private Vector2 movement;
 
     // Start is called upon loading the scene
