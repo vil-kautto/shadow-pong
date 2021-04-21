@@ -6,12 +6,12 @@ public class Score : MonoBehaviour
 {
     public TextMeshProUGUI playerScoreText;
     public TextMeshProUGUI opponentScoreText;
-    public int playerScore = 0;
-    public int opponentScore = 0;
+    public int playerScore;
+    public int opponentScore;
 
     void Update()
     {
-        playerScoreText.text = $"Player's Score {playerScore}";
-        opponentScoreText.text = $"Player's Score {opponentScore}";
+        playerScoreText.text = $"{playerScore}";
+        opponentScoreText.text = $"{opponentScore}";
     }
 }

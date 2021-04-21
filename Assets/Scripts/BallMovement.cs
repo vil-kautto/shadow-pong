@@ -11,6 +11,10 @@ public class BallMovement : MonoBehaviour
     private Vector3 lastVelocity;
     private Vector3 startPosition;
 
+    /**
+     * Start method is run on the start og the scene
+     * This starts the primary gameplay loop
+     */
     void Start()
     {
         startPosition = new Vector3(0, 0, 0);
@@ -21,28 +25,54 @@ public class BallMovement : MonoBehaviour
 
     public TextMeshProUGUI playerScoreText;
     public TextMeshProUGUI opponentScoreText;
+    public TextMeshProUGUI TimerText;
     private int playerScore = 0;
     private int opponentScore = 0;
-
+    
+    /**
+     * Update continiously updates the values for ingame variables 
+     */
     void Update()
     {
         lastVelocity = ball.velocity;
-        playerScoreText.text = $"Player's Score: {playerScore}";
-        opponentScoreText.text = $"Opponent's Score: {opponentScore}";
+        playerScoreText.text = $"{playerScore}";
+        opponentScoreText.text = $"{opponentScore}";
     }
 
-    public float resetDelay;
+    public int resetDelay;
+    private float timer;
 
+    /**
+     * BallReset controls the game flow
+     * This method resets the ball position between rounds and manages the delay for the round start
+     */
     void BallReset()
     {
         ball.velocity = new Vector3(0, 0, 0);
         ball.transform.position = startPosition;
-        Invoke("StartGame", resetDelay);
+        Debug.Log(resetDelay);
+        timer = resetDelay;
+        TimerText.text = timer.ToString();
+        for(int i = 1; i<resetDelay; i++)
+        {
+            Invoke("UpdateTimer", (float)(timer - i));
+        }
+        
+        Invoke("StartGame", (float)resetDelay);
+    }
+
+    void UpdateTimer()
+    {
+        timer--;
+        Debug.Log("Updated timer with value: " + timer);
+        TimerText.text = timer.ToString();
+        
     }
 
     void StartGame()
     {
         ball.AddForce(new Vector2(moveSpeed, 1));
+        TimerText.text = "";
     }
 
     void OnCollisionEnter2D(Collision2D collidedObject)
@@ -57,7 +87,7 @@ public class BallMovement : MonoBehaviour
             {
                 opponentScore++;
                 Debug.Log("Opponent's score: " + opponentScore.ToString());
-                FindObjectOfType<GameController>().EndRound();
+                //FindObjectOfType<GameController>().EndRound();
 
                 BallReset();
             }
@@ -65,22 +95,11 @@ public class BallMovement : MonoBehaviour
             {
                 playerScore++;
                 Debug.Log("Player's score: " + playerScore.ToString());
-                FindObjectOfType<GameController>().EndRound();
+                //FindObjectOfType<GameController>().EndRound();
                 
                 BallReset();
             }
         }
-    }
-
-    void Wait(float time)
-    {
-        Debug.Log("the wait starts");
-        time -= Time.deltaTime;
-        Debug.Log(time);
-        //while (time < 0)
-        //{
-        //}
-        Debug.Log("the wait ends");
     }
 }
 

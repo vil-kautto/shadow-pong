@@ -440,8 +440,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -810,8 +810,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1244,9 +1244,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1752044491}
   - component: {fileID: 1752044490}
-  - component: {fileID: 1752044489}
   - component: {fileID: 1752044488}
   - component: {fileID: 1752044487}
+  - component: {fileID: 1752044489}
   m_Layer: 0
   m_Name: PlayerOpponent
   m_TagString: Player
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1752044486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0318db52647c8d4298afa6bbd9ae5f5, type: 3}
+  m_Script: {fileID: 11500000, guid: e08dd933ad0ab3c4281977eecfda7c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1752044488}
@@ -1407,10 +1407,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 1881369784}
-  moveSpeed: 200
+  moveSpeed: 300
   playerScoreText: {fileID: 597588224}
   opponentScoreText: {fileID: 1096424694}
-  resetDelay: 2
+  TimerText: {fileID: 959805613}
+  resetDelay: 3
 --- !u!58 &1881369787
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1467,6 +1468,14 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 819525456117354474, guid: 4853978bda9f3ca49aead23d9e1eac0a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 819525456117354474, guid: 4853978bda9f3ca49aead23d9e1eac0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 819525456117354474, guid: 4853978bda9f3ca49aead23d9e1eac0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1504,6 +1513,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 819525456117354474, guid: 4853978bda9f3ca49aead23d9e1eac0a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 819525456117354475, guid: 4853978bda9f3ca49aead23d9e1eac0a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+    - target: {fileID: 819525456117354475, guid: 4853978bda9f3ca49aead23d9e1eac0a, type: 3}
+      propertyPath: m_DrawMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
