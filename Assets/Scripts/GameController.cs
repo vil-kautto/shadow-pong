@@ -3,16 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/**
+ * Gamecontroller controls the general flow of the game
+ */
 public class GameController : MonoBehaviour
 {
+    // GUI elements for score tallying
     public TextMeshProUGUI playerScoreText;
     public TextMeshProUGUI opponentScoreText;
 
-    public void StartRound()
+    /**
+     * StartRound prepares and starts the game
+     */
+    private void StartRound()
     {
-        Debug.Log("Round Start");
+        Debug.Log("Starting the next round");
+        FindObjectOfType<BallMovement>().BallReset();
     }
 
+    /**
+     * EndRound updates the scores and calls StartRound -method
+     */
     public void EndRound(string winner, int winnerScore)
     {
         Debug.Log("Round End, winner: " + winner);
